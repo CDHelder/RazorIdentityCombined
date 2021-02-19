@@ -32,17 +32,17 @@
             -->
             <div class="form-group">
                 <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
-                <input asp-for="RepairOrder.HoursWorked" class="form-control" />
+                <input asp-for="RepairOrder.HoursWorked" class="form-control" min="0" />
                 <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
-                <input asp-for="RepairOrder.BeginDate" class="form-control" />
+                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.BeginDate" class="form-control" />
                 <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RepairOrder.EndDate" class="control-label"></label>
-                <input asp-for="RepairOrder.EndDate" class="form-control" />
+                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.EndDate" class="form-control" />
                 <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">

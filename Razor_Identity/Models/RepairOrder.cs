@@ -23,6 +23,7 @@ namespace Razor_Identity.Models
         [Display(Name = "Repair Status")]
         public Status? Status { get; set; }
 
+        [Required(ErrorMessage = "Hours worked input is required")]
         [Display(Name = "Hours Worked")]
         public int HoursWorked { get; set; }
 
@@ -38,6 +39,7 @@ namespace Razor_Identity.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
+        [Required(ErrorMessage = "Repair order description is required")]
         [DataType(DataType.MultilineText)]
         [MaxLength(500)]
         [Display(Name = "Description")]
