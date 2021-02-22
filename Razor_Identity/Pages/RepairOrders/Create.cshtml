@@ -54,6 +54,19 @@
                 <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
                 <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
             </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">Part 1 &nbsp;</span>
+                <select asp-for="RepairOrder.PartID1" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
+                    <option value="">Select Part</option>
+                </select>
+                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                <input asp-for="RepairOrder.Part1Quantity" class="form-control" min="0"></>
+                <span asp-validation-for="RepairOrder.Part1Quantity" class="text-danger"></span>
+            </div>
+
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

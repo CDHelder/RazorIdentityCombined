@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Razor_Identity.Models
 {
@@ -50,5 +51,12 @@ namespace Razor_Identity.Models
         [Display(Name = "Work Report")]
         public string WorkReport { get; set; }
 
+        //All parts
+        [Display(Name ="Part 1")]
+        public Part Part1 { get; set; }
+        [ForeignKey("Id")]
+        public int? PartID1 { get; set; }
+        [Display(Name ="Quantity Part 1")]
+        public int Part1Quantity { get; set; }
     }
 }

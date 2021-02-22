@@ -22,7 +22,7 @@ namespace Razor_Identity.Pages.RepairOrders
         public IActionResult OnGet()
         {
 
-            ViewData["PartID"] = new SelectList(_context.Parts, "Id", "PartName");
+            ViewData["PartID"] = new SelectList(_context.Parts, "Id", "Name");
             ViewData["Statussen"] = new SelectList(Enum.GetValues<Status>());
             ViewData["BeginDates"] = new SelectList(_context.RepairOrders, "Id", "BeginDate");
             ViewData["EndDates"] = new SelectList(_context.RepairOrders, "Id", "EndDate");

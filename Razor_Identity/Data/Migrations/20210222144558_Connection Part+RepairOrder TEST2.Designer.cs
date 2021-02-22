@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Razor_Identity.Data;
 
 namespace Razor_Identity.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210222144558_Connection Part+RepairOrder TEST2")]
+    partial class ConnectionPartRepairOrderTEST2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,9 +280,6 @@ namespace Razor_Identity.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("Part1Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Part1Quantity")
                         .HasColumnType("int");
 
                     b.Property<int?>("PartID1")

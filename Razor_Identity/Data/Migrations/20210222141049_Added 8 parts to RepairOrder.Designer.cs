@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Razor_Identity.Data;
 
 namespace Razor_Identity.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210222141049_Added 8 parts to RepairOrder")]
+    partial class Added8partstoRepairOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -280,10 +282,25 @@ namespace Razor_Identity.Data.Migrations
                     b.Property<int?>("Part1Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Part1Quantity")
+                    b.Property<int?>("Part2Id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PartID1")
+                    b.Property<int?>("Part3Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Part4Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Part5Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Part6Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Part7Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Part8Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -298,6 +315,20 @@ namespace Razor_Identity.Data.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("Part1Id");
+
+                    b.HasIndex("Part2Id");
+
+                    b.HasIndex("Part3Id");
+
+                    b.HasIndex("Part4Id");
+
+                    b.HasIndex("Part5Id");
+
+                    b.HasIndex("Part6Id");
+
+                    b.HasIndex("Part7Id");
+
+                    b.HasIndex("Part8Id");
 
                     b.ToTable("RepairOrders");
                 });
@@ -363,7 +394,49 @@ namespace Razor_Identity.Data.Migrations
                         .WithMany()
                         .HasForeignKey("Part1Id");
 
+                    b.HasOne("Razor_Identity.Models.Part", "Part2")
+                        .WithMany()
+                        .HasForeignKey("Part2Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part3")
+                        .WithMany()
+                        .HasForeignKey("Part3Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part4")
+                        .WithMany()
+                        .HasForeignKey("Part4Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part5")
+                        .WithMany()
+                        .HasForeignKey("Part5Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part6")
+                        .WithMany()
+                        .HasForeignKey("Part6Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part7")
+                        .WithMany()
+                        .HasForeignKey("Part7Id");
+
+                    b.HasOne("Razor_Identity.Models.Part", "Part8")
+                        .WithMany()
+                        .HasForeignKey("Part8Id");
+
                     b.Navigation("Part1");
+
+                    b.Navigation("Part2");
+
+                    b.Navigation("Part3");
+
+                    b.Navigation("Part4");
+
+                    b.Navigation("Part5");
+
+                    b.Navigation("Part6");
+
+                    b.Navigation("Part7");
+
+                    b.Navigation("Part8");
                 });
 
             modelBuilder.Entity("Razor_Identity.Models.ApplicationUser", b =>
