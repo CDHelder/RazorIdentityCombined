@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>HTML Invoice Template</title>
 
     <style>
     .invoice-box {
@@ -164,17 +164,16 @@
                     <td>
                         Parts
                     </td>
-                    <!--
-                    Voeg hier de details van de onderdelen in
+                   
                     <td>
                         <span class="nowrap">
-                            Model.RepairOrder.Part.PartName, Model.RepairOrder.Part.PartType :
-                            <span style="color:black"> € (Model.RepairOrder.Part.PartPrice)</span>
+                            @Model.RepairOrder.Part1.Name, @Model.RepairOrder.Part1.PartType :
+                            <span style="color:black">@Model.RepairOrder.Part1Quantity X € @(Model.RepairOrder.Part1.Price)</span>
                         </span>
 
                         <span style="display:none;"> (TotalCost = TotalCost + (Model.RepairOrder.Part.PartPrice)) </span>
                     </td>
-                    -->
+                    
                 </tr>
 
                 <tr class="item">

@@ -62,141 +62,111 @@
                 <div class="input-group" id="part1Div">
                     <span class="input-group-addon">Part 1 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID1" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part1">
-                        <option disabled selected value="12345">Select Part</option>
+                        <option disabled selected value="0">Select Part</option>
                     </select>
                     <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part1Quantity" class="form-control" min="0" id="part1Q"></>
-                    <span asp-validation-for="RepairOrder.Part1Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part1Quantity" class="form-control" value="0" id="part1Q"></>
                 </div>
                 <div class="input-group" id="part2Div">
                     <span class="input-group-addon">Part 2 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID2" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part2">
-                        <option disabled selected value="">Select Part</option>
+                        <option disabled selected value="0">Select Part</option>
                     </select>
                     <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part2Quantity" class="form-control" min="0" id="part2Q"></>
-                    <span asp-validation-for="RepairOrder.Part2Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part2Quantity" class="form-control" value="0" id="part2Q"></>
                 </div>
+
                 <div class="input-group" id="part3Div">
                     <span class="input-group-addon">Part 3 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID3" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part3">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part3Quantity" class="form-control" min="0" id="part3Q"></>
-                    <span asp-validation-for="RepairOrder.Part3Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part3Quantity" class="form-control" value="0" id="part3Q"></>
                 </div>
+
                 <div class="input-group" id="part4Div">
                     <span class="input-group-addon">Part 4 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID4" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part4">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part4Quantity" class="form-control" min="0" id="part4Q"></>
-                    <span asp-validation-for="RepairOrder.Part4Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part4Quantity" class="form-control" value="0" id="part4Q"></>
                 </div>
                 <div class="input-group" id="part5Div">
                     <span class="input-group-addon">Part 5 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID5" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part5">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part5Quantity" class="form-control" min="0" id="part5Q"></>
-                    <span asp-validation-for="RepairOrder.Part5Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part5Quantity" class="form-control" value="0" id="part5Q"></>
                 </div>
                 <div class="input-group" id="part6Div">
                     <span class="input-group-addon">Part 6 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID6" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part6">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part6Quantity" class="form-control" min="0" id="part6Q"></>
-                    <span asp-validation-for="RepairOrder.Part6Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part6Quantity" class="form-control" value="0" id="part6Q"></>
                 </div>
                 <div class="input-group" id="part7Div">
                     <span class="input-group-addon">Part 7 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID7" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part7">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part7Quantity" class="form-control" min="0" id="part7Q"></>
-                    <span asp-validation-for="RepairOrder.Part7Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part7Quantity" class="form-control" value="0" id="part7Q"></>
                 </div>
                 <div class="input-group" id="part8Div">
                     <span class="input-group-addon">Part 8 &nbsp;</span>
                     <select asp-for="RepairOrder.PartID8" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part8">
                         <option disabled selected value="">Select Part</option>
                     </select>
-                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
                     <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                    <input asp-for="RepairOrder.Part8Quantity" class="form-control" min="0" id="part8Q"></>
-                    <span asp-validation-for="RepairOrder.Part8Quantity" class="text-danger"></span>
+                    <input asp-for="RepairOrder.Part8Quantity" class="form-control" value="0" id="part8Q"></>
                 </div>
 
                 <!--jQuery functies-->
                 <script>
                     $(document).ready(function () {
-                        $('#part2Div').hide();
-                        $('#part3Div').hide();
-                        $('#part4Div').hide();
-                        $('#part5Div').hide();
-                        $('#part6Div').hide();
-                        $('#part7Div').hide();
-                        $('#part8Div').hide();
-                    });
+                        //Hide all divs and allow null values
+                        $('#part2Div,#part3Div,#part4Div,#part5Div,#part6Div,#part7Div,#part8Div').hide();
+                        $('#part2,#part3,#part4,#part5,#part6,#part7,#part8').removeAttr("required").attr("AllowNull");
+                        $('#part2Q, #part3Q,#part4Q, #part5Q,#part6Q, #part7Q,#part8Q').removeAttr("required").attr("AllowNull, Nullable[System.Int32]");
 
-                    $(document).ready(function () {
+                        //Function that shows next part when selectbox changes
                         $('#part1').on('change', function () {
                             $("#part2Div").show();
-                            $("#part1Q").val(1);
+                            $("#part1Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part2').on('change', function () {
                             $("#part3Div").show();
-                            $("#part2Q").val(1);
+                            $("#part2Q").attr({ "min": 0}).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part3').on('change', function () {
                             $("#part4Div").show();
-                            $("#part3Q").val(1);
+                            $("#part3Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part4').on('change', function () {
                             $("#part5Div").show();
-                            $("#part4Q").val(1);
+                            $("#part4Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part5').on('change', function () {
                             $("#part6Div").show();
-                            $("#part5Q").val(1);
+                            $("#part5Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part6').on('change', function () {
                             $("#part7Div").show();
-                            $("#part6Q").val(1);
+                            $("#part6Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part7').on('change', function () {
                             $("#part8Div").show();
-                            $("#part7Q").val(1);
+                            $("#part7Q").attr({ "min": 0 }).val(1);
                         });
-                    });
-                    $(document).ready(function () {
                         $('#part8').on('change', function () {
-                            $("#part8Q").val(1);
+                            $("#part8Q").attr({ "min": 0 }).val(1);
                         });
                     });
                 </script>
