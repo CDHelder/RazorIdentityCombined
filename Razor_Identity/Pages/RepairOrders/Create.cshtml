@@ -1,26 +1,29 @@
 ﻿@page
 @model Razor_Identity.Pages.RepairOrders.CreateModel
 
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Pages/Shared/_Layout.cshtml";
-    var HiddenVar = "hidden";
+@{ ViewData["Title"] = "Create";
+   Layout = "~/Pages/Shared/_Layout.cshtml"; 
 }
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+</head>
+<body>
 
-<h1>Create</h1>
+    <h1>Create</h1>
 
-<h4>RepairOrder</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.Status" class="control-label"></label>
-                <select asp-for="RepairOrder.Status" class="form-control" asp-items="ViewBag.Statussen"></select>
-                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
-            </div>
-            <!--
+    <h4>RepairOrder</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Status" class="control-label"></label>
+                    <select asp-for="RepairOrder.Status" class="form-control" asp-items="ViewBag.Statussen"></select>
+                    <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+                </div>
+                <!--
     <div class="form-group">
         <label asp-for="RepairOrder.Customer" class="control-label"></label>
         <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
@@ -30,136 +33,188 @@
         <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
     </div>
     -->
-            <div class="form-group">
-                <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
-                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.BeginDate" class="form-control" asp-items="ViewBag.BeginDates" />
-                <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.EndDate" class="control-label"></label>
-                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.EndDate" class="form-control" asp-items="ViewBag.EndDates" />
-                <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
-                <input asp-for="RepairOrder.HoursWorked" class="form-control" asp-items="ViewBag.HoursWorked" min="0" />
-                <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.Description" class="control-label"></label>
-                <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
-                <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.WorkReport" class="control-label"></label>
-                <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
-                <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
+                    <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.BeginDate" class="form-control" asp-items="ViewBag.BeginDates" />
+                    <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.EndDate" class="control-label"></label>
+                    <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.EndDate" class="form-control" asp-items="ViewBag.EndDates" />
+                    <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
+                    <input asp-for="RepairOrder.HoursWorked" class="form-control" asp-items="ViewBag.HoursWorked" min="0" />
+                    <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Description" class="control-label"></label>
+                    <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
+                    <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.WorkReport" class="control-label"></label>
+                    <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
+                    <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
+                </div>
 
-            <script>
-                $('#part1').on('change', function () {
-                    if (this.value === "12345") {
-                        $("#part2").hide();
-                    } else {
-                        $("#part2").show();
-                    }
-                });
-            </script>
+                <div class="input-group" id="part1Div">
+                    <span class="input-group-addon">Part 1 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID1" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part1">
+                        <option disabled selected value="12345">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part1Quantity" class="form-control" min="0" id="part1Q"></>
+                    <span asp-validation-for="RepairOrder.Part1Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part2Div">
+                    <span class="input-group-addon">Part 2 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID2" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part2">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part2Quantity" class="form-control" min="0" id="part2Q"></>
+                    <span asp-validation-for="RepairOrder.Part2Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part3Div">
+                    <span class="input-group-addon">Part 3 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID3" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part3">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part3Quantity" class="form-control" min="0" id="part3Q"></>
+                    <span asp-validation-for="RepairOrder.Part3Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part4Div">
+                    <span class="input-group-addon">Part 4 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID4" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part4">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part4Quantity" class="form-control" min="0" id="part4Q"></>
+                    <span asp-validation-for="RepairOrder.Part4Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part5Div">
+                    <span class="input-group-addon">Part 5 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID5" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part5">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part5Quantity" class="form-control" min="0" id="part5Q"></>
+                    <span asp-validation-for="RepairOrder.Part5Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part6Div">
+                    <span class="input-group-addon">Part 6 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID6" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part6">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part6Quantity" class="form-control" min="0" id="part6Q"></>
+                    <span asp-validation-for="RepairOrder.Part6Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part7Div">
+                    <span class="input-group-addon">Part 7 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID7" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part7">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part7Quantity" class="form-control" min="0" id="part7Q"></>
+                    <span asp-validation-for="RepairOrder.Part7Quantity" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part8Div">
+                    <span class="input-group-addon">Part 8 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID8" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part8">
+                        <option disabled selected value="">Select Part</option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part8Quantity" class="form-control" min="0" id="part8Q"></>
+                    <span asp-validation-for="RepairOrder.Part8Quantity" class="text-danger"></span>
+                </div>
 
-            <div class="input-group" id="part1">
-                <span class="input-group-addon">Part 1 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID1" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="12345">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part1Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part1Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group" id="part2">
-                <span class="input-group-addon">Part 2 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID2" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part2Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part2Quantity" class="text-danger"></span>
-            </div>
+                <!--jQuery functies-->
+                <script>
+                    $(document).ready(function () {
+                        $('#part2Div').hide();
+                        $('#part3Div').hide();
+                        $('#part4Div').hide();
+                        $('#part5Div').hide();
+                        $('#part6Div').hide();
+                        $('#part7Div').hide();
+                        $('#part8Div').hide();
+                    });
 
-            <div class="input-group">
-                <span class="input-group-addon">Part 3 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID3" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part3Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part3Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Part 4 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID4" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part4Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part4Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Part 5 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID5" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part5Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part5Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Part 6 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID6" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part6Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part6Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Part 7 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID7" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part7Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part7Quantity" class="text-danger"></span>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">Part 8 &nbsp;</span>
-                <select asp-for="RepairOrder.PartID8" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;">
-                    <option disabled selected value="">Select Part</option>
-                </select>
-                <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
-                <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
-                <input asp-for="RepairOrder.Part8Quantity" class="form-control" min="0"></>
-                <span asp-validation-for="RepairOrder.Part8Quantity" class="text-danger"></span>
-            </div>
+                    $(document).ready(function () {
+                        $('#part1').on('change', function () {
+                            $("#part2Div").show();
+                            $("#part1Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part2').on('change', function () {
+                            $("#part3Div").show();
+                            $("#part2Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part3').on('change', function () {
+                            $("#part4Div").show();
+                            $("#part3Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part4').on('change', function () {
+                            $("#part5Div").show();
+                            $("#part4Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part5').on('change', function () {
+                            $("#part6Div").show();
+                            $("#part5Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part6').on('change', function () {
+                            $("#part7Div").show();
+                            $("#part6Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part7').on('change', function () {
+                            $("#part8Div").show();
+                            $("#part7Q").val(1);
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#part8').on('change', function () {
+                            $("#part8Q").val(1);
+                        });
+                    });
+                </script>
 
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
