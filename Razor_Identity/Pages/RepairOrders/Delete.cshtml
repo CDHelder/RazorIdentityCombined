@@ -63,7 +63,90 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.WorkReport)
+            <br><br />
         </dd>
+        @if (Model.RepairOrder.PartID1 != null || Model.RepairOrder.PartID2 != null || Model.RepairOrder.PartID3 != null
+|| Model.RepairOrder.PartID4 != null || Model.RepairOrder.PartID5 != null || Model.RepairOrder.PartID6 != null
+|| Model.RepairOrder.PartID7 != null || Model.RepairOrder.PartID8 != null)
+        {
+
+            <dt class="col-sm-2"><u>Part Name</u></dt>
+            <dd class="col-sm-10"><u>Part Quantity</u></dd>
+
+            if (Model.RepairOrder.PartID1 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID1</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part1Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID2 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID2</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part2Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID3 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID3</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part3Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID4 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID4</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part4Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID5 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID5</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part5Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID6 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID6</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part6Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID7 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID7</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part7Quantity</label>
+                </dd>
+            }
+            if (Model.RepairOrder.PartID8 != null)
+            {
+                <dt class="col-sm-2">
+                    <label class="control-label">@ViewBag.PartID8</label>
+                </dt>
+                <dd class="col-sm-10">
+                    <label class="control-label">@Model.RepairOrder.Part8Quantity</label>
+                </dd>
+            }
+
+        }
     </dl>
     
     <form method="post">

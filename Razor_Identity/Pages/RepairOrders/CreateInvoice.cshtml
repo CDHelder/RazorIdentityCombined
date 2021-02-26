@@ -11,95 +11,97 @@
     <title>HTML Invoice Template</title>
 
     <style>
-    .invoice-box {
-        max-width: 800px;
-        margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color: #555;
-    }
-
-    .invoice-box table {
-        width: 100%;
-        line-height: inherit;
-        text-align: left;
-    }
-
-    .invoice-box table td {
-        padding: 5px;
-        vertical-align: top;
-    }
-
-    .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-    }
-
-    .invoice-box table tr.top table td {
-        padding-bottom: 20px;
-    }
-
-    .invoice-box table tr.top table td.title {
-        font-size: 45px;
-        line-height: 45px;
-        color: #333;
-    }
-
-    .invoice-box table tr.information table td {
-        padding-bottom: 40px;
-    }
-
-    .invoice-box table tr.heading td {
-        background: #eee;
-        border-bottom: 1px solid #ddd;
-        font-weight: bold;
-    }
-
-    .invoice-box table tr.details td {
-        padding-bottom: 20px;
-    }
-
-        .invoice-box table tr.item td {
-            border-bottom: 1px solid #eee;
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
         }
 
-    .invoice-box table tr.item.last td {
-        border-bottom: none;
-    }
+            .invoice-box table {
+                width: 100%;
+                line-height: inherit;
+                text-align: left;
+            }
 
-    .invoice-box table tr.total td:nth-child(2) {
-        border-top: 2px solid #eee;
-        font-weight: bold;
-    }
+                .invoice-box table td {
+                    padding: 5px;
+                    vertical-align: top;
+                }
 
-        .invoice-box table tr.information table td {
-            width: 100%;
-            display: block;
-            text-align: center;
+                .invoice-box table tr td:nth-child(2) {
+                    text-align: right;
+                }
+
+                .invoice-box table tr.top table td {
+                    padding-bottom: 20px;
+                }
+
+                    .invoice-box table tr.top table td.title {
+                        font-size: 45px;
+                        line-height: 45px;
+                        color: #333;
+                    }
+
+                .invoice-box table tr.information table td {
+                    padding-bottom: 40px;
+                }
+
+                .invoice-box table tr.heading td {
+                    background: #eee;
+                    border-bottom: 1px solid #ddd;
+                    font-weight: bold;
+                }
+
+                .invoice-box table tr.details td {
+                    padding-bottom: 20px;
+                }
+
+                .invoice-box table tr.item td {
+                    border-bottom: 1px solid #eee;
+                }
+
+                .invoice-box table tr.item.last td {
+                    border-bottom: none;
+                }
+
+                .invoice-box table tr.total td:nth-child(2) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                }
+
+                .invoice-box table tr.information table td {
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         }
 
-    /** RTL **/
-    .rtl {
-        direction: rtl;
-        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    }
+            .rtl table {
+                text-align: right;
+            }
 
-    .rtl table {
-        text-align: right;
-    }
+                .rtl table tr td:nth-child(2) {
+                    text-align: left;
+                }
 
-    .rtl table tr td:nth-child(2) {
-        text-align: left;
-    }
-    .nowrap {
-        white-space: nowrap;
-        color:grey;
-    }
-
+        .nowrap {
+            white-space: nowrap;
+            color: grey;
+        }
     </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 </head>
 
 
@@ -136,15 +138,15 @@
                                 +31 0612345678
                             </td>
                             <!--
-                            Voeg hier customer info toe
-                            <td>
-                                <strong>Bill to:</strong><br>
-                                Client ID: Model.RepairOrder.Customer.ID<br>
-                                Model.RepairOrder.Customer.Name<br>
-                                Model.RepairOrder.Customer.Emailadress<br>
-                                0 Model.RepairOrder.Customer.PhoneNumber
-                            </td>
-                            -->
+                    Voeg hier customer info toe
+                    <td>
+                        <strong>Bill to:</strong><br>
+                        Client ID: Model.RepairOrder.Customer.ID<br>
+                        Model.RepairOrder.Customer.Name<br>
+                        Model.RepairOrder.Customer.Emailadress<br>
+                        0 Model.RepairOrder.Customer.PhoneNumber
+                    </td>
+                    -->
                         </tr>
                     </table>
                 </td>
@@ -159,62 +161,184 @@
                     Price
                 </td>
             </tr>
-            
-                <tr class="item">
-                    <td>
-                        Parts
-                    </td>
-                   
-                    <td>
-                        <span class="nowrap">
-                            @Model.RepairOrder.Part1.Name, @Model.RepairOrder.Part1.PartType :
-                            <span style="color:black">@Model.RepairOrder.Part1Quantity X € @(Model.RepairOrder.Part1.Price)</span>
-                        </span>
 
-                        <span style="display:none;"> (TotalCost = TotalCost + (Model.RepairOrder.Part.PartPrice)) </span>
-                    </td>
-                    
-                </tr>
+            <tr class="item">
+                <td>
+                    <u>Parts</u>
+                </td>
+            </tr>
 
-                <tr class="item">
-                    <td>
-                        Repair Labor
-                    </td>
+            <tr class="item" id="part1Tr">
+                <td>
+                    @ViewBag.PartID1
+                </td>
 
-                    <td>
-                        <span class="nowrap">
-                            @Model.RepairOrder.HoursWorked hours  X € @CostEachHour :
-                            <span style="color:black"> € @(Model.RepairOrder.HoursWorked * CostEachHour)</span>
-                        </span>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part1Quantity X € @ViewBag.PartID1Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part1Quantity * ViewBag.PartID1Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part2Tr">
+                <td>
+                    @ViewBag.PartID2
+                </td>
 
-                        <span style="display:none;"> @(TotalCost = TotalCost + (Model.RepairOrder.HoursWorked * CostEachHour)) </span>
-                    </td>
-                </tr>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part2Quantity X € @ViewBag.PartID2Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part2Quantity * ViewBag.PartID2Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part3Tr">
+                <td>
+                    @ViewBag.PartID3
+                </td>
 
-                <tr class="item last">
-                    <td>
-                        Work Report: <br>
-                        <span style="color:grey">@Model.RepairOrder.WorkReport</span>
-                    </td>
-                </tr>
-                
-                <tr class="total">
-                    <td></td>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part3Quantity X € @ViewBag.PartID3Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part3Quantity * ViewBag.PartID3Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part4Tr">
+                <td>
+                    @ViewBag.PartID4
+                </td>
 
-                    <td>
-                        Subtotal: € &nbsp; @TotalCost<br />
-                        Taxes (21%): € &nbsp; @Math.Round((TaxesTotalCost = TotalCost * 0.21), 2)
-                    </td>
-                </tr>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part4Quantity X € @ViewBag.PartID4Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part4Quantity * ViewBag.PartID4Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part5Tr">
+                <td>
+                    @ViewBag.PartID5
+                </td>
 
-                <tr class="total">
-                    <td></td>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part5Quantity X € @ViewBag.PartID5Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part5Quantity * ViewBag.PartID5Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part6Tr">
+                <td>
+                    @ViewBag.PartID6
+                </td>
 
-                    <td>
-                        Total: € @Math.Round((TotalCost + TaxesTotalCost), 2)
-                    </td>
-                </tr>
-            </table>
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part6Quantity X € @ViewBag.PartID6Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part6Quantity * ViewBag.PartID6Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part7Tr">
+                <td>
+                    @ViewBag.PartID7
+                </td>
+
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part7Quantity X € @ViewBag.PartID7Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part7Quantity * ViewBag.PartID7Price)</span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="item" id="part8Tr">
+                <td>
+                    @ViewBag.PartID8
+                </td>
+
+                <td>
+                    <span class="nowrap">
+                        @Model.RepairOrder.Part8Quantity X € @ViewBag.PartID8Price :
+                        <span style="color:black"> € @(Model.RepairOrder.Part8Quantity * ViewBag.PartID8Price)</span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr class="item">
+                <td>
+                    <u><br><br />Repair Labor</u>
+                </td>
+
+                <td>
+                    <br><br />
+                    <span class="nowrap">
+                        @Model.RepairOrder.HoursWorked hours  X € @CostEachHour :
+                        <span style="color:black"> € @(Model.RepairOrder.HoursWorked * CostEachHour)</span>
+                    </span>
+
+                    <span style="display:none;"> @(TotalCost = TotalCost + (Model.RepairOrder.HoursWorked * CostEachHour)) </span>
+                </td>
+            </tr>
+
+            <tr class="item last">
+                <td>
+                    Work Report: <br>
+                    <span style="color:grey">@Model.RepairOrder.WorkReport</span>
+                </td>
+            </tr>
+
+            <tr class="total">
+                <td></td>
+
+                <td>
+                    Subtotal: € &nbsp; @TotalCost<br />
+                    Taxes (21%): € &nbsp; @Math.Round((TaxesTotalCost = TotalCost * 0.21), 2)
+                </td>
+            </tr>
+
+            <tr class="total">
+                <td></td>
+
+                <td>
+                    Total: € @Math.Round((TotalCost + TaxesTotalCost), 2)
+                </td>
+            </tr>
+        </table>
     </div>
+
+    <!-- Werkt nog niet, hoe krijg ik de weergave alleen als er een waarde zit in ding van de part (naam, prijs, hoeveelheid, id)-->
+    <script>
+        $(document).ready(function () {
+            $('#part1Tr,#part2Tr,#part3Tr,#part4Tr,#part5Tr,#part6Tr,#part7Tr,#part8Tr').hide()
+
+            if ($(@Model.RepairOrder.Part1Quantity).val()) {
+                $('#part1Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part2Quantity > 0) && (@ViewBag.PartID2Price > 0)) {
+                $('#part2Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part3Quantity > 0) && (@ViewBag.PartID3Price > 0)) {
+                $('#part3Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part4Quantity > 0) && (@ViewBag.PartID4Price > 0)) {
+                $('#part4Tr').show();
+            }
+            if ($(@ViewBag.PartID5).val()) {
+                $('#part5Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part6Quantity > 0) && (@ViewBag.PartID6Price > 0)) {
+                $('#part6Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part7Quantity > 0) && (@ViewBag.PartID7Price > 0)) {
+                $('#part7Tr').show();
+            }
+            if ($(@Model.RepairOrder.Part8Quantity > 0) && (@ViewBag.PartID8Price > 0)) {
+                $('#part8Tr').show();
+            }
+
+        });
+    </script>
+
 </body>
 </html>

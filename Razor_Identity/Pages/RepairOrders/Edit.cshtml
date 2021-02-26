@@ -1,71 +1,216 @@
 ﻿@page
 @model Razor_Identity.Pages.RepairOrders.EditModel
 
-@{
-    ViewData["Title"] = "Edit";
-    Layout = "~/Pages/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Edit";
+                Layout = "~/Pages/Shared/_Layout.cshtml"; }
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+</head>
 
-<h1>Edit</h1>
+<body>
+    <h1>Edit</h1>
 
-<h4>RepairOrder</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="RepairOrder.Id" />
-            <div class="form-group">
-                <label asp-for="RepairOrder.Status" class="control-label"></label>
-                <select asp-for="RepairOrder.Status" class="form-control" asp-items="ViewBag.Statussen"></select>
-                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
-            </div>
-            <!--
-            <div class="form-group">
-                <label asp-for="RepairOrder.Customer" class="control-label"></label>
-                <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.Employee" class="control-label"></label>
-                <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
-            </div>
-            -->
-            <div class="form-group">
-                <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
-                <input asp-for="RepairOrder.HoursWorked" class="form-control" min="0" />
-                <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
-                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.BeginDate" class="form-control" />
-                <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.EndDate" class="control-label"></label>
-                <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.EndDate" class="form-control" />
-                <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.Description" class="control-label"></label>
-                <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
-                <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RepairOrder.WorkReport" class="control-label"></label>
-                <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
-                <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>RepairOrder</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RepairOrder.Id" />
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Status" class="control-label"></label>
+                    <select asp-for="RepairOrder.Status" class="form-control" asp-items="ViewBag.Statussen"></select>
+                    <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+                </div>
+                <!--
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Customer" class="control-label"></label>
+                    <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Employee" class="control-label"></label>
+                    <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                </div>
+                -->
+                <div class="form-group">
+                    <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
+                    <input asp-for="RepairOrder.HoursWorked" class="form-control" min="0" />
+                    <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
+                    <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.BeginDate" class="form-control" />
+                    <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.EndDate" class="control-label"></label>
+                    <input min="@DateTime.Today.ToString("yyyy-MM-dd")" asp-for="RepairOrder.EndDate" class="form-control" />
+                    <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.Description" class="control-label"></label>
+                    <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
+                    <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RepairOrder.WorkReport" class="control-label"></label>
+                    <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
+                    <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
+                </div>
+                <div class="input-group" id="part1Div">
+                    <span class="input-group-addon">Part 1 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID1" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part1">
+                        <option selected value="@Model.RepairOrder.PartID1"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part1Quantity" class="form-control" value="@Model.RepairOrder.Part1Quantity" id="part1Q"></>
+                </div>
+                <div class="input-group" id="part2Div">
+                    <span class="input-group-addon">Part 2 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID2" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part2">
+                        <option selected value="@Model.RepairOrder.PartID2"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part2Quantity" class="form-control" value="@Model.RepairOrder.Part2Quantity" id="part2Q"></>
+                </div>
+                <div class="input-group" id="part3Div">
+                    <span class="input-group-addon">Part 3 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID3" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part3">
+                        <option selected value="@Model.RepairOrder.PartID3"></option>
+                    </select>
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part3Quantity" class="form-control" value="@Model.RepairOrder.Part3Quantity" id="part3Q"></>
+                </div>
+                <div class="input-group" id="part4Div">
+                    <span class="input-group-addon">Part 4 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID4" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part4">
+                        <option selected value="@Model.RepairOrder.PartID4"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part4Quantity" class="form-control" value="@Model.RepairOrder.Part4Quantity" id="part4Q"></>
+                </div>
+                <div class="input-group" id="part5Div">
+                    <span class="input-group-addon">Part 5 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID5" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part5">
+                        <option selected value="@Model.RepairOrder.PartID5"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part5Quantity" class="form-control" value="@Model.RepairOrder.Part5Quantity" id="part5Q"></>
+                </div>
+                <div class="input-group" id="part6Div">
+                    <span class="input-group-addon">Part 6 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID6" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part6">
+                        <option selected value="@Model.RepairOrder.PartID6"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part6Quantity" class="form-control" value="@Model.RepairOrder.Part6Quantity" id="part6Q"></>
+                </div>
+                <div class="input-group" id="part7Div">
+                    <span class="input-group-addon">Part 7 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID7" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part7">
+                        <option selected value="@Model.RepairOrder.PartID7"></option>
+                    </select>
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part7Quantity" class="form-control" value="@Model.RepairOrder.Part7Quantity" id="part7Q"></>
+                </div>
+                <div class="input-group" id="part8Div">
+                    <span class="input-group-addon">Part 8 &nbsp;</span>
+                    <select asp-for="RepairOrder.PartID8" class="form-control" asp-items="ViewBag.PartID" style="width: 100px;" id="part8">
+                        <option selected value="@Model.RepairOrder.PartID8"></option>
+                    </select>
+                    <!--span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></!--span-->
+                    <span class="input-group-addon" style="border-left: 0; border-right: 0;">&nbsp; Quantity &nbsp;</span>
+                    <input asp-for="RepairOrder.Part8Quantity" class="form-control" value="@Model.RepairOrder.Part8Quantity" id="part8Q"></>
+                </div>
+
+                <!--jQuery functie die alles verstopt en laat zien als het value heeft-->
+                <script>
+                    $(document).ready(function () {
+                        $('#part2Div,#part3Div,#part4Div,#part5Div,#part6Div,#part7Div,#part8Div').hide();
+
+                        if ($('#part2').val()) {
+                            $('#part2Div').show();
+                            $('#part3Div').show();
+                        }
+                        if ($('#part3').val()) {
+                            $('#part3Div').show();
+                            $('#part4Div').show();
+                        }
+                        if ($('#part4').val()) {
+                            $('#part4Div').show();
+                            $('#part5Div').show();
+                        }
+                        if ($('#part5').val()) {
+                            $('#part5Div').show();
+                            $('#part6Div').show();
+                        }
+                        if ($('#part6').val()) {
+                            $('#part6Div').show();
+                            $('#part7Div').show();
+                        }
+                        if ($('#part7').val()) {
+                            $('#part7Div').show();
+                            $('#part8Div').show();
+                        }
+                        if ($('#part8').val()) {
+                            $('#part8Div').show();
+                        }
+
+                        $('#part1').on('change', function () {
+                            $("#part2Div").show();
+                            $("#part1Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part2').on('change', function () {
+                            $("#part3Div").show();
+                            $("#part2Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part3').on('change', function () {
+                            $("#part4Div").show();
+                            $("#part3Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part4').on('change', function () {
+                            $("#part5Div").show();
+                            $("#part4Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part5').on('change', function () {
+                            $("#part6Div").show();
+                            $("#part5Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part6').on('change', function () {
+                            $("#part7Div").show();
+                            $("#part6Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part7').on('change', function () {
+                            $("#part8Div").show();
+                            $("#part7Q").attr({ "min": 0 }).val(1);
+                        });
+                        $('#part8').on('change', function () {
+                            $("#part8Q").attr({ "min": 0 }).val(1);
+                        });
+
+                    });
+                </script>
+
+                <br><br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
